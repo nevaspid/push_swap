@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves2.c                                           :+:      :+:    :+:   */
+/*   moves2_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:50:58 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/20 21:23:45 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/20 21:23:54 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *stack, int rr)
+void	ra_bonus(t_stack *stack)
 {
 	int	i;
 	int	last;
@@ -24,11 +24,9 @@ void	ra(t_stack *stack, int rr)
 	while (++i < stack->len_a - 1)
 		stack->a[i] = stack->a[i + 1];
 	stack->a[stack->len_a - 1] = last;
-	if (rr == 0)
-		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack *stack, int rr)
+void	rb_bonus(t_stack *stack)
 {
 	int	i;
 	int	last;
@@ -40,20 +38,17 @@ void	rb(t_stack *stack, int rr)
 	while (++i < stack->len_b - 1)
 		stack->b[i] = stack->b[i + 1];
 	stack->b[stack->len_b - 1] = last;
-	if (rr == 0)
-		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack *stack)
+void	rr_bonus(t_stack *stack)
 {
 	if (stack->len_a == 0 || stack->len_b == 0)
 		return ;
-	ra(stack, 1);
-	rb(stack, 1);
-	write(1, "rr\n", 3);
+	ra_bonus(stack);
+	rb_bonus(stack);
 }
 
-void	rra(t_stack *stack, int rrr)
+void	rra_bonus(t_stack *stack)
 {
 	int	i;
 	int	first;
@@ -65,11 +60,9 @@ void	rra(t_stack *stack, int rrr)
 	while (--i >= 0)
 		stack->a[i] = stack->a[i - 1];
 	stack->a[0] = first;
-	if (rrr == 0)
-		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *stack, int rrr)
+void	rrb_bonus(t_stack *stack)
 {
 	int	i;
 	int	first;
@@ -81,6 +74,4 @@ void	rrb(t_stack *stack, int rrr)
 	while (--i >= 0)
 		stack->b[i] = stack->b[i - 1];
 	stack->b[0] = first;
-	if (rrr == 0)
-		write(1, "rrb\n", 4);
 }

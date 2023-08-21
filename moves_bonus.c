@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   moves_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 17:51:24 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/20 21:24:27 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/20 21:22:26 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack)
+void	sa_bonus(t_stack *stack)
 {
 	int	to_swap;
 
 	to_swap = stack->a[0];
 	stack->a[0] = stack->a[1];
 	stack->a[1] = to_swap;
-	write(1, "sa\n", 3);
 	return ;
 }
 
-void	sb(t_stack *stack)
+void	sb_bonus(t_stack *stack)
 {
 	int	to_swap;
 
 	to_swap = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = to_swap;
-	write(1, "sb\n", 3);
 	return ;
 }
 
-void	ss(t_stack *stack)
+void	ss_bonus(t_stack *stack)
 {
 	int	to_swap;
 	int	to_swap_b;
@@ -45,11 +43,10 @@ void	ss(t_stack *stack)
 	to_swap_b = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = to_swap_b;
-	write(1, "ss\n", 3);
 	return ;
 }
 
-void	pa(t_stack *stack)
+void	pa_bonus(t_stack *stack)
 {
 	int	*b_p;
 	int	*a_p;
@@ -73,10 +70,9 @@ void	pa(t_stack *stack)
 	free(stack->b);
 	stack->a = a_p;
 	stack->b = b_p;
-	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *stack)
+void	pb_bonus(t_stack *stack)
 {
 	int	*b_p;
 	int	*a_p;
@@ -100,5 +96,4 @@ void	pb(t_stack *stack)
 	free(stack->b);
 	stack->a = a_p;
 	stack->b = b_p;
-	write(1, "pb\n", 3);
 }

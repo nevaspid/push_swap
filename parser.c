@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 20:11:49 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/13 18:07:43 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/18 17:01:43 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	parser(char **av, t_stack *stack)
 	atoi_error = 0;
 	if (check_space(av) == 0 && !av[2])
 		av = ft_split(av[1], ' ');
+	if (!av[1])
+		return (1);
 	stack->a = malloc(sizeof(int) * arg_count(av, &atoi_error, stack));
 	while (av[++i + 1])
 	{

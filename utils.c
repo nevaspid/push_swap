@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:47:56 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/14 19:05:56 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/20 21:27:10 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,16 @@ int	ft_atoi(char *str, int *atoi_error)
 	return (number * negamorph);
 }
 
-void	freeall(t_stack *stack, t_costs *costs)
+void	freeall(t_stack *stack)
 {
 	if (stack)
 	{
-		if (stack->a)
+		if (stack->len_a)
 			free(stack->a);
-		if (stack->b)
+		if (stack->len_b)
 			free(stack->b);
 		if (stack->sortedtab)
 			free(stack->sortedtab);
+		free(stack);
 	}
-	if (costs)
-		free(costs);
 }

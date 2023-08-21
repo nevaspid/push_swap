@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 21:01:52 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/20 21:26:36 by gloms            ###   ########.fr       */
+/*   Created: 2023/08/20 18:43:12 by gloms             #+#    #+#             */
+/*   Updated: 2023/08/20 20:53:49 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_isascii(int c)
 {
-	t_stack	*stack;
-	t_costs	costs;
-
-	stack = malloc(sizeof(t_stack));
-	stack->len_b = 0;
-	if (ac == 1 || parser(av, stack) == 1)
-		return (write(1, "Error\n", 6), EXIT_FAILURE);
-	if (ac == 3 || ac == 4 || ac == 6)
-		lilsort(stack, ac - 1);
+	if (c >= 0 && c <= 127)
+		return (1);
 	else
-		bigsort(stack, &costs);
-	freeall(stack);
+		return (0);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (!ft_isascii(s1[i]) || !ft_isascii(s2[i]))
+			i++;
+		if (s1[i] > s2[i] || !s2[i])
+			return (1);
+		if (s1[i] < s2[i] || !s1[i])
+			return (-1);
+		i++;
+	}
 	return (0);
 }

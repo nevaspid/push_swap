@@ -6,13 +6,13 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:02:25 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/14 21:17:11 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/20 21:23:02 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_smallest(t_stack *s)
+int	find_smallest(t_stack *s)
 {
 	int	i;
 	int	index_of_the_smallest;
@@ -25,12 +25,11 @@ int find_smallest(t_stack *s)
 	return (index_of_the_smallest);
 }
 
-void small_to_top(t_stack *s)
+void	small_to_top(t_stack *s)
 {
 	int	i;
 
 	i = find_smallest(s);
-
 	if (i >= s->len_a / 2)
 	{
 		i = s->len_a - i;
@@ -48,19 +47,19 @@ void small_to_top(t_stack *s)
 int	find_biggest(t_stack *s)
 {
 	int	i;
-	int	biggest;
+	int	index_of_biggest;
 
 	i = 0;
-	biggest = s->a[0];
+	index_of_biggest = 0;
 	while (++i < s->len_a)
 	{
-		if (s->a[i] > biggest)
-			biggest = s->a[i];
+		if (s->a[i] > s->a[index_of_biggest])
+			index_of_biggest = i;
 	}
-	return (biggest);
+	return (index_of_biggest);
 }
 
-int median(t_stack *s)
+int	median(t_stack *s)
 {
 	int	i;
 	int	j;
@@ -88,7 +87,7 @@ int median(t_stack *s)
 	return (s->sortedtab[s->len_a / 2]);
 }
 
-int bestplace(t_stack *s, int value)
+int	bestplace(t_stack *s, int value)
 {
 	int	i;
 

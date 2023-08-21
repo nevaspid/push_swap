@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 21:01:54 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/14 22:15:07 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/20 21:25:05 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "gnl/get_next_line.h"
 
 typedef struct s_stack
 {
 	int	*a;
-	int *b;
+	int	*b;
 	int	*sortedtab;
 	int	len_a;
-	int len_b;
+	int	len_b;
+	int	median;
 }	t_stack;
 
 typedef struct s_costs
@@ -52,6 +54,7 @@ typedef struct s_costs
 }	t_costs;
 
 int		ft_atoi(char *str, int *atoi_error);
+void	freeall(t_stack *stack);
 int		parser(char **av, t_stack *stack);
 int		ft_isdigit(char *str, int i);
 char	**ft_split(const char *s, char c);
@@ -64,26 +67,54 @@ int		check_sorted(t_stack *stack);
 void	print_stacks(t_stack *stack);
 
 /* MOVES */
-void small_to_top(t_stack *s);
-void big_to_top(t_stack *s);
-void pa(t_stack *stack);
-void pb(t_stack *stack);
-void ss(t_stack *stack);
-void sa(t_stack *stack);
-void sb(t_stack *stack);
-void ra(t_stack *stack, int rr);
-void rb(t_stack *stack, int rr);
-void rr(t_stack *stack);
-void rra(t_stack *stack, int rrr);
-void rrb(t_stack *stack, int rrr);
-void rrr(t_stack *stack);
+void	small_to_top(t_stack *s);
+void	big_to_top(t_stack *s);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
+void	ss(t_stack *stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ra(t_stack *stack, int rr);
+void	rb(t_stack *stack, int rr);
+void	rr(t_stack *stack);
+void	rra(t_stack *stack, int rrr);
+void	rrb(t_stack *stack, int rrr);
+void	rrr(t_stack *stack);
+void	apply_moves(t_stack *s, t_costs *c);
 
 /* SORTING */
 int		find_biggest(t_stack *s);
 int		find_smallest(t_stack *s);
+int		bestplace(t_stack *s, int value);
+void	init_cost(t_costs *c);
+int		median(t_stack *s);
+void	bigsort(t_stack *s, t_costs *c);
 void	lilsort(t_stack *s, int sort);
+void	step_1(t_stack *s);
+void	newcostless2(t_costs *c);
 
 /* COST CALCULATION */
 void	individual_cost(int index_a, int index_b, t_stack *s, t_costs *c);
+void	up_cost(int index_a, int index_b, t_costs *c);
+void	down_cost(int index_a, int index_b, t_stack *s, t_costs *c);
+int		cost_calculation(int index_b, t_stack *s, t_costs *c);
+void	define_index(t_costs *c, t_stack *s);
+
+/* BONUS */
+char	*get_next_line(int fd);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	move(t_stack *s, char *line);
+int		ft_isascii(int c);
+void	sa_bonus(t_stack *stack);
+void	sb_bonus(t_stack *stack);
+void	ss_bonus(t_stack *stack);
+void	ra_bonus(t_stack *stack);
+void	rb_bonus(t_stack *stack);
+void	rra_bonus(t_stack *stack);
+void	rrb_bonus(t_stack *stack);
+void	rr_bonus(t_stack *stack);
+void	rrr_bonus(t_stack *stack);
+void	pa_bonus(t_stack *stack);
+void	pb_bonus(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:22:16 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/04 19:43:07 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/20 19:43:39 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,15 @@ int	check_sorted(t_stack *stack)
 	int	i;
 
 	i = 0;
-	while (i < stack->len_a)
+	while (i < stack->len_a - 1)
 	{
 		if (stack->a[i] > stack->a[i + 1])
+		{
 			return (0);
+		}
 		i++;
 	}
-	exit(EXIT_SUCCESS);
+	freeall(stack);
+	write (1, "OK\n", 3);
+	exit(0);
 }
