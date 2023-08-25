@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:50:58 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/20 21:23:45 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/25 11:23:38 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	rra(t_stack *stack, int rrr)
 		return ;
 	i = stack->len_a;
 	first = stack->a[stack->len_a - 1];
-	while (--i >= 0)
+	while (--i > 0)
 		stack->a[i] = stack->a[i - 1];
 	stack->a[0] = first;
 	if (rrr == 0)
@@ -78,7 +78,7 @@ void	rrb(t_stack *stack, int rrr)
 		return ;
 	i = stack->len_b;
 	first = stack->b[stack->len_b - 1];
-	while (--i >= 0)
+	while (--i > 0)
 		stack->b[i] = stack->b[i - 1];
 	stack->b[0] = first;
 	if (rrr == 0)

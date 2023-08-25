@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 17:51:24 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/20 21:24:27 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/25 10:36:55 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,23 @@ void	pa(t_stack *stack)
 	int	i;
 	int	y;
 
-	y = 0;
-	i = 0;
-	if (stack->len_b == 0)
+	y = -1;
+	i = -1;
+	if (!stack->len_b)
 		return ;
-	stack->len_b -= 1;
-	stack->len_a += 1;
-	b_p = malloc(sizeof(int) * stack->len_b);
-	a_p = malloc(sizeof(int) * stack->len_a);
+	b_p = malloc(sizeof(int) * (stack->len_b - 1));
+	a_p = malloc(sizeof(int) * (stack->len_a + 1));
 	a_p[0] = stack->b[0];
 	while (++i < stack->len_a)
-		a_p[i] = stack->a[i - 1];
-	while (++y < stack->len_b + 1)
-		b_p[y - 1] = stack->b[y];
+		a_p[i + 1] = stack->a[i];
+	while (++y < stack->len_b - 1)
+		b_p[y] = stack->b[y + 1];
 	free(stack->a);
 	free(stack->b);
 	stack->a = a_p;
 	stack->b = b_p;
+	stack->len_b -= 1;
+	stack->len_a += 1;
 	write(1, "pa\n", 3);
 }
 
@@ -83,22 +83,23 @@ void	pb(t_stack *stack)
 	int	i;
 	int	y;
 
-	y = 0;
-	i = 0;
-	if (stack->len_a == 0)
+	y = -1;
+	i = -1;
+	if (!stack->len_a)
 		return ;
-	stack->len_a -= 1;
-	stack->len_b += 1;
-	a_p = malloc(sizeof(int) * stack->len_a);
-	b_p = malloc(sizeof(int) * stack->len_b);
+	a_p = malloc(sizeof(int) * (stack->len_a - 1));
+	b_p = malloc(sizeof(int) * (stack->len_b + 1));
 	b_p[0] = stack->a[0];
 	while (++i < stack->len_b)
-		b_p[i] = stack->b[i - 1];
-	while (++y < stack->len_a + 1)
-		a_p[y - 1] = stack->a[y];
+		b_p[i + 1] = stack->b[i];
+	while (++y < stack->len_a - 1)
+		a_p[y] = stack->a[y + 1];
 	free(stack->a);
-	free(stack->b);
+	if (stack->len_b)
+		free(stack->b);
 	stack->a = a_p;
 	stack->b = b_p;
+	stack->len_a -= 1;
+	stack->len_b += 1;
 	write(1, "pb\n", 3);
 }

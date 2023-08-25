@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 21:01:52 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/20 21:26:36 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/25 10:41:31 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	main(int ac, char **av)
 	stack = malloc(sizeof(t_stack));
 	stack->len_b = 0;
 	if (ac == 1 || parser(av, stack) == 1)
+	{
+		freeall(stack);
 		return (write(1, "Error\n", 6), EXIT_FAILURE);
+	}
 	if (ac == 3 || ac == 4 || ac == 6)
 		lilsort(stack, ac - 1);
 	else

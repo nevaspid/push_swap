@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 20:11:49 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/18 17:01:43 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/25 10:07:52 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	parser(char **av, t_stack *stack)
 		av = ft_split(av[1], ' ');
 	if (!av[1])
 		return (1);
-	stack->a = malloc(sizeof(int) * arg_count(av, &atoi_error, stack));
+	stack->a = malloc(sizeof(int) * arg_count(&av[1], &atoi_error, stack));
 	while (av[++i + 1])
 	{
 		stack->a[i] = ft_atoi(av[i + 1], &atoi_error);
@@ -60,7 +60,7 @@ int	arg_count(char **av, int *atoi_error, t_stack *stack)
 			*atoi_error = 1;
 		i++;
 	}
-	stack->len_a = i - 1;
+	stack->len_a = i;
 	return (i);
 }
 
