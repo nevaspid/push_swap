@@ -6,7 +6,7 @@
 #    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/19 13:18:52 by gloms             #+#    #+#              #
-#    Updated: 2023/08/25 11:42:33 by gloms            ###   ########.fr        #
+#    Updated: 2023/08/28 22:41:40 by gloms            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME		:= push_swap
 NAME_BONUS  := checker
 CC			:= gcc
-FLAGS		:= -Wall -Wextra -Werror -g3 -g -fsanitize=address
+FLAGS		:= -Wall -Wextra -Werror -g3 -g
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
@@ -38,14 +38,14 @@ SRCS        :=            utils_split.c \
 
 SRCS_BONUS	:=          gnl/get_next_line_utils.c \
                         gnl/get_next_line.c \
-                        parser_int_inputs.c \
+                        parser_int_inputs_bonus.c \
 						bonus_checker.c \
 						moves_bonus.c \
 						moves2_bonus.c \
 						moves3_bonus.c \
 						utils_bonus.c \
 						utils.c \
-						parser.c \
+						parser_bonus.c \
 						utils_split.c \
 
 OBJS        := $(SRCS:.c=.o)

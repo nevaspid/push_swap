@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:22:16 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/28 22:22:11 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/20 19:43:39 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int	check_sorted(t_stack *stack)
 		i++;
 	}
 	freeall(stack);
+	write (1, "OK\n", 3);
 	exit(0);
 }

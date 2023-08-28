@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 21:01:54 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/25 10:42:08 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/28 23:52:37 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ typedef struct s_costs
 
 int		ft_atoi(char *str, int *atoi_error);
 void	freeall(t_stack *stack);
+void	freetab(char **av);
 int		parser(char **av, t_stack *stack);
 int		ft_isdigit(char *str, int i);
 char	**ft_split(const char *s, char c);
 size_t	wordcount(const char *s, char c);
-int		check_space(char **av);
+int		check_space(char **av, int *freeav);
 int		arg_count(char **av, int *atoi_error, t_stack *stack);
 int		check_doubles(t_stack *stack);
 int		check_in_int(t_stack *stack);
@@ -105,6 +106,7 @@ char	*get_next_line(int fd);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	move(t_stack *s, char *line);
 int		ft_isascii(int c);
+int		parser_bonus(char **av, t_stack *stack);
 void	sa_bonus(t_stack *stack);
 void	sb_bonus(t_stack *stack);
 void	ss_bonus(t_stack *stack);

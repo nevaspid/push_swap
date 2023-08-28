@@ -6,11 +6,21 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 20:17:55 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/20 21:24:11 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/28 23:51:52 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	freetab(char **av)
+{
+	int	i;
+
+	i = -1;
+	while (av[++i])
+		free(av[i]);
+	free(av);
+}
 
 void	reader(t_stack *s)
 {
@@ -58,12 +68,12 @@ int	main(int ac, char **av)
 {
 	t_stack	*s;
 
+	if (ac == 1)
+		return (write(2, "Error\n", 6), EXIT_FAILURE);
 	s = malloc(sizeof(t_stack));
 	s->len_b = 0;
 	s->sortedtab = 0;
-	if (ac == 2)
-		return (write(1, "OK\n", 6));
-	if (parser(av, s) == 1)
+	if (parser_bonus(av, s) == 1)
 		return (write(2, "Error\n", 6), EXIT_FAILURE);
 	reader(s);
 	if (check_sorted(s) == 0)

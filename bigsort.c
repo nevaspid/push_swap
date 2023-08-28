@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:43:38 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/25 09:26:47 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/28 23:49:43 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	bigsort(t_stack *s, t_costs *c)
 		apply_moves(s, c);
 	}
 	small_to_top(s);
+	free(s->sortedtab);
 }
 
 void	step_1(t_stack *s)

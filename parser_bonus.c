@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 20:11:49 by gloms             #+#    #+#             */
-/*   Updated: 2023/08/28 22:22:53 by gloms            ###   ########.fr       */
+/*   Updated: 2023/08/28 23:51:44 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	parser(char **av, t_stack *stack)
+int	parser_bonus(char **av, t_stack *stack)
 {
 	int	i;
 	int	atoi_error;
